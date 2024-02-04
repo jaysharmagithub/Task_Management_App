@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaEye, FaTrashAlt, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-//import Search from "../common/Search";
+import Search from "../common/Search";
 
 const TasksView = () => {
   const [tasks, setTasks] = useState([]);
-  //const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     loadTasks();
@@ -29,7 +29,7 @@ const TasksView = () => {
 
   return (
     <section>
-      {/* <Search search={search} setSearch={setSearch} /> */}
+      {<Search search={search} setSearch={setSearch} />}
       <table className="table table-bordered table-hover shadow">
         <thead>
           <tr className="text-center">
@@ -44,7 +44,7 @@ const TasksView = () => {
         </thead>
         <tbody className="text-center">
           {tasks
-            // .filter((st) => st.firstName.toLowerCase().includes(search))
+            .filter((st) => st.name.toLowerCase().includes(search))
             .map((task, index) => (
               <tr key={task.id} style={{ width: "15%" }}>
                 <th scope="row" key={index}>
